@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import styles from "./Movie.module.css";
+import PropTypes from "prop-types";
 
 function Movie({id, title, poster_path, release, genres, genreList}) {
 
@@ -25,6 +25,15 @@ function Movie({id, title, poster_path, release, genres, genreList}) {
             </div>
         </div>
     );
+}
+
+Movie.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    poster_path: PropTypes.string.isRequired,
+    release: PropTypes.string.isRequired,
+    genres: PropTypes.array.isRequired,
+    genreList: PropTypes.object.isRequired
 }
 
 export default Movie;

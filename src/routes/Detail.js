@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./Detail.module.css";
 
@@ -7,16 +7,16 @@ function Detail() {
     const [loading, setLoading] = useState(true);
     const [details, setDetails] = useState([]);
 
-    const getDetails = async () => {
+    const getDetails = useCallback(async () => {
         const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}${process.env.REACT_APP_BACK}`)).json();
         setDetails(json);
         console.log(json);
-    };
+    }, [id]);
 
     useEffect(() => {
         getDetails();
         setLoading(false);
-    }, []);
+    }, [getDetails]);
 
     return (
         <div>
@@ -34,7 +34,7 @@ function Detail() {
                     <h6 className={styles.release}>{details.release_date}</h6>
                     <div className={styles.genres}>
                     {
-                        details.genres.map((genre, index) => (
+                        details.genres && details.genres.map((genre, index) => (
                             <p key={index} className={styles.genre}>
                                 {genre.name}
                             </p>

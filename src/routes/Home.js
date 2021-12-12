@@ -37,7 +37,7 @@ function Home() {
                     <h2>인기 순위</h2>
                     <div className={styles.movies}>
                     {
-                        movies.map((movie) => (
+                        movies && movies.map((movie) => (
                             <Link className={styles.link} key={movie.id} to={`/movie/${movie.id}`}>
                                 <Movie
                                     id={movie.id}
