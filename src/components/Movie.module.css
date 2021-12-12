@@ -1,0 +1,17 @@
+.coverImg {
+    width: 300px;
+    height: 450px;
+}
+
+.release {
+    margin: 0px;
+}
+
+.genres {
+    display: flex;
+    font-size: 12px;
+}
+
+.genre {
+    margin-right: 5px;
+}
