@@ -16,7 +16,6 @@ function Home() {
 
     return (
         <div>
-            <h1>Home</h1>
             {
                 movies.map((movie, index) => (
                     <div key={index}>

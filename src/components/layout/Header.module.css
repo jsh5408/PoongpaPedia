@@ -1,0 +1,20 @@
+.header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 250px;
+    margin-right: 50px;
+}
+
+.movie {
+    font-size: 25px;
+    text-decoration: none;
+    color: #000;
+}
+
+/*
+justify center
+*/
