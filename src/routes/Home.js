@@ -1,8 +1,10 @@
-import {useState, useEffect} from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Movie from "../components/Movie";
 
 function Home() {
+    const [loading, setLoading] = useState(true);
     const [movies, setMovies] = useState([]);
     const [genreList, setGenreList] = useState({});
 
@@ -22,26 +24,35 @@ function Home() {
     useEffect(() => {
         getMovie();
         getGenres();
+        setLoading(false);
     }, []);
 
     return (
         <div>
-            <h2>인기 순위</h2>
-            <div className={styles.movies}>
             {
-                movies.map((movie, index) => (
-                    <Movie
-                        key={index}
-                        id={index}
-                        title={movie.title}
-                        poster_path={movie.poster_path}
-                        release={movie.release_date}
-                        genres={movie.genre_ids}
-                        genreList={genreList}
-                    />
-                ))
+                loading ?
+                <h1>Loading...</h1>
+                :
+                <div className="popular">
+                    <h2>인기 순위</h2>
+                    <div className={styles.movies}>
+                    {
+                        movies.map((movie) => (
+                            <Link className={styles.link} key={movie.id} to={`/movie/${movie.id}`}>
+                                <Movie
+                                    id={movie.id}
+                                    title={movie.title}
+                                    poster_path={movie.poster_path}
+                                    release={movie.release_date}
+                                    genres={movie.genre_ids}
+                                    genreList={genreList}
+                                />
+                            </Link>
+                        ))
+                    }
+                    </div>
+                </div>
             }
-            </div>
         </div>
     );
 }

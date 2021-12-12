@@ -3,3 +3,8 @@
     grid-template-columns: 300px 300px 300px 300px;
     gap: 10px 20px;
 }
+
+.link {
+    text-decoration: none;
+    color: #000;
+}
