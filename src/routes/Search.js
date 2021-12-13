@@ -1,14 +1,15 @@
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 
 function Search() {
-    const [value, setValue] = useState("");
+    const {search} = useParams();
     const [results, setResults] = useState([]);
 
-    const getResults = async () => {
+    const getResults = async (search) => {
         const response = await axios.get(`/v1/search/movie.json`, {
             params: {
-                query: value
+                query: search
             },
             headers: {
                 'X-Naver-Client-Id': process.env.REACT_APP_NAVER_API_CLIENT_ID,
@@ -19,22 +20,13 @@ function Search() {
         console.log(response);
     }
 
-    const onChange = (event) => {
-        setValue(event.target.value);
-    }
-
-    const onSubmit = (event) => {
-        event.preventDefault();
-        getResults();
-    }
+    useEffect(() => {
+        getResults(search);
+    }, [search]);
 
     return (
         <div>
-            <h1>Search...</h1>
-            <form onSubmit={onSubmit}>
-                <input value={value} type="text" onChange={onChange} />
-                <button>submit</button>
-            </form>
+            <h1>The Result is...</h1>
             {
                 results.map((result, index) => (
                     <div key={index}>

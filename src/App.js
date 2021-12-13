@@ -11,7 +11,7 @@ function App() {
         <Layout/>
         <Route exact path="/" component={Home} />
         <Route exact path="/movie/:id" component={Detail} />
-        <Route exact path="/search" component={Search} />
+        <Route exact path="/search/:search" component={Search} />
       </Router>
     </div>
   );
