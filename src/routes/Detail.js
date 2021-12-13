@@ -1,22 +1,22 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./Detail.module.css";
+import MovieDetail from "../components/MovieDetail";
 
 function Detail() {
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
     const [details, setDetails] = useState([]);
-
-    const getDetails = useCallback(async () => {
+    
+    const getDetails = async (id) => {
         const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}${process.env.REACT_APP_BACK}`)).json();
         setDetails(json);
         console.log(json);
-    }, [id]);
+    };
 
     useEffect(() => {
-        getDetails();
+        getDetails(id);
         setLoading(false);
-    }, [getDetails]);
+    }, [id]);
 
     return (
         <div>
@@ -24,27 +24,28 @@ function Detail() {
                 loading ?
                 <h1>Loading...</h1>
                 :
-                <div key={id}>
-                    <img
-                        className={styles.coverImg}
-                        src={`${process.env.REACT_APP_IMAGE_URL}${details.backdrop_path}`}
-                        alt={details.title}
-                    />
-                    <h3>{details.title}</h3>
-                    <h6 className={styles.release}>{details.release_date}</h6>
-                    <div className={styles.genres}>
-                    {
-                        details.genres && details.genres.map((genre, index) => (
-                            <p key={index} className={styles.genre}>
-                                {genre.name}
-                            </p>
-                        )) 
-                    }
-                    </div>
-                </div>
+                details && <MovieDetail
+                    id={id}
+                    backdrop_path={details.backdrop_path}
+                    title={details.title}
+                    release_date={details.release_date}
+                    genres={details.genres}
+                    original_title={details.original_title}
+                    status={details.status}
+                    runtime={details.runtime}
+                    overview={details.overview}
+                />
             }
         </div>
     );
 }
 
 export default Detail;
+
+/*
+    const getDetails = useCallback(async (params) => {
+        const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${params}${process.env.REACT_APP_BACK}`)).json();
+        setDetails(json);
+        console.log(json);
+    }, [id]);
+    */
