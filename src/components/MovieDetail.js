@@ -1,7 +1,7 @@
 import styles from "./MovieDetail.module.css";
 //import PropTypes from "prop-types";
 
-function MovieDetail({id, backdrop_path, title, release_date, genres, original_title, status, runtime, overview}) {
+function MovieDetail({id, backdrop_path, title, release_date, genres, original_title, status, runtime, overview, results}) {
     return (
         <div>
             {
@@ -32,6 +32,8 @@ function MovieDetail({id, backdrop_path, title, release_date, genres, original_t
                     }</p>
                     <p>{release_date.slice(0,4)}</p>
                     <p>{`${parseInt(runtime/60)}시간 ${runtime%60}분`}</p>
+                    <p>{results.director}</p>
+                    <p>{results.actor}</p>
                     <p>영화 {`<${title}>`}은 {overview}</p>
                 </div>
                 :
