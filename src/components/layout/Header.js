@@ -14,6 +14,7 @@ function Header() {
     const onSubmit = (event) => {
         event.preventDefault();
         history.push(`/search/${value}`);
+        setValue("");
     }
 
     return (

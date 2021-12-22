@@ -9,10 +9,12 @@ function Detail() {
     const [details, setDetails] = useState([]);
     const [results, setResults] = useState([]);
     
-    const getResults = async (title) => {
+    const getResults = async (title, date) => {
         const response = await axios.get(`/api/v1/search/movie.json`, {
             params: {
-                query: title
+                query: title,
+                yearfrom: Number(date),
+                yearto: Number(date)
             },
             headers: {
                 'X-Naver-Client-Id': process.env.REACT_APP_NAVER_API_CLIENT_ID,
@@ -28,7 +30,7 @@ function Detail() {
         setDetails(json);
         console.log(json);
         if(json) {
-            getResults(json.title);
+            getResults(json.title, json.release_date.slice(0, 4));
         }
     };
 
