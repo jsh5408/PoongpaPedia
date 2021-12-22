@@ -27,7 +27,12 @@
 
 .castImg {
     width: 80px;
+    /*height: 56px;*/
     margin-right: 10px;
+}
+
+.castImg2 {
+    max-width: initial;
 }
 
 .castName {

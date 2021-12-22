@@ -7,11 +7,20 @@ function Detail() {
     const [loading, setLoading] = useState(true);
     const [details, setDetails] = useState([]);
     const [credits, setCredits] = useState([]);
+    const [director, setDirector] = useState([]);
 
     const getCredits = async (id) => {
         const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}/credits${process.env.REACT_APP_MOVIE_BACK}`)).json();
+        
         setCredits(json.cast.slice(0, 20));
         console.log(json.cast);
+        for(let c of json.crew) {
+            if(c.job === "Director") {
+                setDirector(c);
+                console.log(c);
+                break;
+            }
+        }
     }
 
     const getDetails = async (id) => {
@@ -43,6 +52,7 @@ function Detail() {
                     runtime={details.runtime}
                     overview={details.overview}
                     credits={credits}
+                    director={director}
                 />
             }
         </div>
