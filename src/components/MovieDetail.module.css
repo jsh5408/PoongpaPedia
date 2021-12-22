@@ -14,3 +14,22 @@
 .genre {
     margin-right: 5px;
 }
+
+.casts {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+    gap: 10px 20px;
+}
+
+.cast {
+    display: flex;
+}
+
+.castImg {
+    width: 80px;
+    margin-right: 10px;
+}
+
+.castName {
+    font-weight: bold;
+}

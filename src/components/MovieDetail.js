@@ -1,7 +1,19 @@
+import { useEffect, useState } from "react";
 import styles from "./MovieDetail.module.css";
 //import PropTypes from "prop-types";
 
-function MovieDetail({id, backdrop_path, title, release_date, genres, original_title, status, runtime, overview, results}) {
+function MovieDetail({id, backdrop_path, title, release_date, genres, original_title, status, runtime, overview, credits}) {
+    const [director, setDirector] = useState([]);
+    const [actor, setActor] = useState([]);
+    /*
+    useEffect(() => {
+        const actorList = results.actor.split("|");
+        actorList.pop();
+        setDirector(results.director.split("|"));
+        setActor(actorList);
+        console.log(actorList);
+    }, []);*/
+
     return (
         <div>
             {
@@ -32,9 +44,22 @@ function MovieDetail({id, backdrop_path, title, release_date, genres, original_t
                     }</p>
                     <p>{release_date.slice(0,4)}</p>
                     <p>{`${parseInt(runtime/60)}시간 ${runtime%60}분`}</p>
-                    <p>{results.director}</p>
-                    <p>{results.actor}</p>
                     <p>영화 {`<${title}>`}은 {overview}</p>
+                    <br />
+                    <h2>출연/제작</h2>
+                    <div className={styles.casts}>
+                        {
+                            credits.map((cast) => (
+                                <div key={cast.id} className={styles.cast}>
+                                    <img src={`${process.env.REACT_APP_IMAGE_URL}/${cast.profile_path}`} className={styles.castImg}/>
+                                    <div>
+                                        <p className={styles.castName}>{cast.name}</p>
+                                        <p>{cast.character}</p>
+                                    </div>
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
                 :
                 null
@@ -59,3 +84,9 @@ MovieDetail.propTypes = {
 */
 
 export default MovieDetail;
+
+
+/*
+<p>{results.director}</p>
+<p>{results.actor}</p>
+*/

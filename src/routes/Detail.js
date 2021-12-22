@@ -1,41 +1,28 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import axios from "axios";
 import MovieDetail from "../components/MovieDetail";
 
 function Detail() {
     const {id} = useParams();
     const [loading, setLoading] = useState(true);
     const [details, setDetails] = useState([]);
-    const [results, setResults] = useState([]);
-    
-    const getResults = async (title, date) => {
-        const response = await axios.get(`/api/v1/search/movie.json`, {
-            params: {
-                query: title,
-                yearfrom: Number(date),
-                yearto: Number(date)
-            },
-            headers: {
-                'X-Naver-Client-Id': process.env.REACT_APP_NAVER_API_CLIENT_ID,
-                'X-Naver-Client-Secret': process.env.REACT_APP_NAVER_API_CLIENT_SECRET
-            }
-        });
-        setResults(response.data.items[0]);
-        console.log(response);
-    };
+    const [credits, setCredits] = useState([]);
+
+    const getCredits = async (id) => {
+        const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}/credits${process.env.REACT_APP_MOVIE_BACK}`)).json();
+        setCredits(json.cast.slice(0, 20));
+        console.log(json.cast);
+    }
 
     const getDetails = async (id) => {
-        const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}${process.env.REACT_APP_BACK}`)).json();
+        const json = await (await fetch(`${process.env.REACT_APP_MOVIE_URL}/${id}${process.env.REACT_APP_MOVIE_BACK}`)).json();
         setDetails(json);
         console.log(json);
-        if(json) {
-            getResults(json.title, json.release_date.slice(0, 4));
-        }
     };
 
     useEffect(() => {
         getDetails(id);
+        getCredits(id);
         setLoading(false);
     }, [id]);
 
@@ -55,7 +42,7 @@ function Detail() {
                     status={details.status}
                     runtime={details.runtime}
                     overview={details.overview}
-                    results={results}
+                    credits={credits}
                 />
             }
         </div>
