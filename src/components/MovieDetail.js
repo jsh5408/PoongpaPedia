@@ -31,23 +31,38 @@ const Header = ({backdrop_path, poster_path, title, release_date, genres}) => {
                     <div className={styles.rightImg}></div>
                     <div className={styles.coverLayer}></div>
                 </div>
+                <div className={styles.headerBottomContainer}>
+                    <div className={styles.headerBottom}>
+                        <div className={styles.hBImg}>
+                            <img
+                                className={styles.posterImg}
+                                src={`${process.env.REACT_APP_IMAGE_URL}${poster_path}`}
+                                alt={title}
+                            />
+                        </div>
+                        <div className={styles.hBText}>
+                            <span className={styles.hBInfo}>
+                                개봉
+                                <em>n일째</em>
+                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
             <div className={styles.headerInfo}>
-                <img
-                    className={styles.posterImg}
-                    src={`${process.env.REACT_APP_IMAGE_URL}${poster_path}`}
-                    alt={title}
-                />
-                <h1>{title}</h1>
-                <h3 className={styles.release}>{release_date}</h3>
-                <div className={styles.genres}>
-                {
-                    genres && genres.map((genre, index) => (
-                        <p key={index} className={styles.genre}>
-                            {genre.name}
-                        </p>
-                    )) 
-                }
+                <div className={styles.infoText}>
+                    <h1>{title}</h1>
+                    <h3 className={styles.release}>{release_date}</h3>
+                    <div className={styles.genres}>
+                    {
+                        genres && genres.map((genre, index) => (
+                            <p key={index} className={styles.genre}>
+                                {genre.name}
+                            </p>
+                        )) 
+                    }
+                    </div>
                 </div>
             </div>
         </div>
