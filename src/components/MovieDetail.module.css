@@ -1,5 +1,96 @@
+.header {
+    width: 100%;
+}
+
+.coverContainer {
+    min-height: 209px;
+    position: relative;
+    box-sizing: border-box;
+    padding: 360px 0px 0px;
+}
+
+.headerCover {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: white;
+    overflow: hidden;
+    /*
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    text-align: center;
+    background: radial-gradient(tomato, mistyrose);
+    background-repeat: no-repeat;*/
+}
+
+.leftImg {
+    flex: 1 1 0%;
+}
+
 .coverImg {
-    width: 80%;
+    position: relative;
+    width: 1024px;
+    height: 100%;
+    top: auto;
+    left: auto;
+    /*filter: none;*/
+    /*width: 60%; */
+}
+
+.leftGradient {
+    width: 150px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    background-image: linear-gradient(-90deg, rgba(102, 110, 70, 0) 0%, rgb(255, 255, 255) 100%)
+}
+
+.rightGradient {
+    width: 100px;
+    display: block;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    background-image: linear-gradient(90deg, rgba(78, 88, 56, 0) 0%, rgb(255, 255, 255) 100%);
+}
+
+.rightImg {
+    flex: 1 1 0%;
+}
+
+.coverLayer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-image: linear-gradient(-180deg, rgba(0, 0, 0, 0.35) 2%, rgba(0, 0, 0, 0.2) 70%, rgba(0, 0, 0, 0.5) 100%);
+    overflow: hidden;
+}
+
+.information {
+    width: 50%;
+}
+
+.headerInfo {
+    display: grid;
+}
+
+.headerInfo:nth-child(1) {
+	/* 1번 라인에서 3칸 */
+	grid-row: 1 / span 3;
+}
+
+.posterImg {
+    width: 200px;
 }
 
 .release {
@@ -17,7 +108,7 @@
 
 .casts {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20%, auto));
+    grid-template-columns: repeat(auto-fill, minmax(30%, auto));
     gap: 10px 20px;
 }
 

@@ -44,6 +44,7 @@ function Detail() {
                 details && <MovieDetail
                     id={id}
                     backdrop_path={details.backdrop_path}
+                    poster_path={details.poster_path}
                     title={details.title}
                     release_date={details.release_date}
                     genres={details.genres}
