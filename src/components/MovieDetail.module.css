@@ -3,6 +3,8 @@
     border-bottom: 1px solid rgb(227, 227, 227);
 }
 
+/* Header Container Start */
+
 .coverContainer {
     min-height: 209px;
     position: relative;
@@ -80,6 +82,9 @@
     */
 }
 
+/* Header Container End */
+/* Header Bottom Container Start */
+
 .headerBottomContainer {
     max-width: 960px;
     margin: 0px auto;
@@ -151,9 +156,8 @@ em {
     font-style: normal;
 }
 
-.information {
-    width: 50%;
-}
+/* Header Bottom Container End */
+/* Header Info Start */
 
 .headerInfo {
     display: grid;
@@ -162,12 +166,6 @@ em {
     margin: 0px auto;
     padding: 14px 16px 22px;
 }
-
-/*
-.headerInfo:nth-child(1) {
-	/* 1번 라인에서 3칸 
-	grid-row: 1 / span 3;
-}*/
 
 .infoText {
     text-align: left;
@@ -244,7 +242,66 @@ em {
     align-items: center;
 }
 
-/**/
+/* Header Info End */
+/* Detail Body Start */
+
+.detailBody {
+    padding: 28px 0px 48px;
+}
+
+/* Detail > Information Start */
+
+.dBContents {
+    margin: 0px auto;
+    max-width: 976px;
+}
+
+.infoList {
+    margin: 0px -8px;
+    border-right: 1px solid;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    border-color: rgb(227, 227, 227) !important;
+}
+
+.hr {
+    border-width: 0px 0px 1px;
+    border-top-style: initial;
+    border-right-style: initial;
+    border-left-style: initial;
+    border-top-color: initial;
+    border-right-color: initial;
+    border-left-color: initial;
+    border-image: initial;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(240, 240, 240);
+    margin: 20px 0px 0px;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    display: block;
+    unicode-bidi: isolate;
+    margin-block-start: 0.5em;
+    margin-block-end: 0.5em;
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+    margin: 0px 20px;
+}
+
+.information {
+    margin: 0px 20px;
+}
+
+.casting {
+    margin: 0px 20px;
+}
+
+/* Detail > Information End */
+/* Detail > Cast Start */
 
 .casts {
     display: grid;
@@ -269,3 +326,7 @@ em {
 .castName {
     font-weight: bold;
 }
+
+/* Detail > Cast End */
+
+/* Detail Body End */

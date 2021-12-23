@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import MovieDetail from "../components/MovieDetail";
-import Layout from "../components/layout/Layout";
 import styles from "./Detail.module.css";
+import DetailHeader from "../components/layout/DetailHeader";
 
 function Detail() {
     const {id} = useParams();
@@ -40,7 +40,7 @@ function Detail() {
     return (
         <div>
             <div className={styles.header}>
-                <Layout />
+                <DetailHeader />
             </div>
             {
                 loading ?

@@ -79,7 +79,7 @@ const Header = ({backdrop_path, poster_path, title, release_date, genres}) => {
 
 const Information = ({original_title, status, release_date, runtime, title, overview}) => {
     return (
-        <div>
+        <div className={styles.information}>
             <h2>기본 정보</h2>
             <p>{original_title}</p>
             <p>{status === "Released" ?
@@ -96,7 +96,7 @@ const Information = ({original_title, status, release_date, runtime, title, over
 
 const Casting = ({director, credits}) => {
     return (
-        <div>
+        <div className={styles.casting}>
             <h2>출연/제작</h2>
             <div className={styles.casts}>
                 <div key={director.id} className={styles.cast}>
@@ -137,20 +137,24 @@ function MovieDetail({id, backdrop_path, poster_path, title, release_date, genre
                         release_date={release_date}
                         genres={genres}
                     />
-                    <div className={styles.information}>
-                        <Information
-                            original_title={original_title}
-                            title={title}
-                            release_date={release_date}
-                            status={status}
-                            runtime={runtime}
-                            overview={overview}
-                        />
-                        <br />
-                        <Casting
-                            director={director}
-                            credits={credits}
-                        />
+                    <div className={styles.detailBody}>
+                        <div className={styles.dBContents}>
+                            <div className={styles.infoList}>
+                                <Information
+                                    original_title={original_title}
+                                    title={title}
+                                    release_date={release_date}
+                                    status={status}
+                                    runtime={runtime}
+                                    overview={overview}
+                                />
+                                <hr className={styles.hr} />
+                                <Casting
+                                    director={director}
+                                    credits={credits}
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
                 :
