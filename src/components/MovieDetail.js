@@ -52,16 +52,18 @@ const Header = ({backdrop_path, poster_path, title, release_date, genres}) => {
             </div>
             <div className={styles.headerInfo}>
                 <div className={styles.infoText}>
-                    <h1>{title}</h1>
-                    <h3 className={styles.release}>{release_date}</h3>
-                    <div className={styles.genres}>
-                    {
-                        genres && genres.map((genre, index) => (
-                            <p key={index} className={styles.genre}>
-                                {genre.name}
-                            </p>
-                        )) 
-                    }
+                    <h1 className={styles.title}>{title}</h1>
+                    <div className={styles.second}>
+                        <div className={styles.release}>{release_date}</div>
+                        <div className={styles.genres}>
+                        {
+                            genres && genres.map((genre, index) => (
+                                <p key={index} className={styles.genre}>
+                                    {genre.name}
+                                </p>
+                            )) 
+                        }
+                        </div>
                     </div>
                 </div>
             </div>

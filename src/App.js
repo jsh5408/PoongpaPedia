@@ -3,6 +3,7 @@ import Layout from "./components/layout/Layout";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Search from "./routes/Search";
+import "./App.css";
 
 function App() {
   return (
