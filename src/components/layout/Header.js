@@ -18,15 +18,17 @@ function Header() {
     }
 
     return (
-        <div className={styles.header}>
-            <Link to="/">
-                <img className={styles.logo} src="img/PoongpaPedia4.png" alt="PoongpaPedia" />
-            </Link>
-            <Link className={styles.movie} to="/">영화</Link>
-            <Link className={styles.tv} to="/">TV프로그램</Link>
-            <form onSubmit={onSubmit}>
-                <input value={value} type="text" onChange={onChange} />
-            </form>
+        <div className={styles.headerContainer}>
+            <div className={styles.containerList}>
+                <Link to="/">
+                    <img className={styles.logo} src="img/PoongpaPedia4.png" alt="PoongpaPedia" />
+                </Link>
+                <Link className={styles.movie} to="/">영화</Link>
+                <Link className={styles.tv} to="/">TV프로그램</Link>
+                <form className={styles.search} onSubmit={onSubmit}>
+                    <input value={value} type="text" onChange={onChange} />
+                </form>
+            </div>
         </div>
     );
 }
