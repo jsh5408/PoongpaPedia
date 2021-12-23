@@ -14,3 +14,16 @@
 .genre {
     margin-right: 5px;
 }
+
+.header {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 51;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    width: 100%;
+    height: 62px;
+    transition: background-color 200ms ease 0s;
+}

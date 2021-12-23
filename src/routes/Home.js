@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Home.module.css";
 import Movie from "../components/Movie";
+import Layout from "../components/layout/Layout";
 
 function Home() {
     const [loading, setLoading] = useState(true);
@@ -29,6 +30,7 @@ function Home() {
 
     return (
         <div>
+            <Layout/>
             {
                 loading ?
                 <h1>Loading...</h1>

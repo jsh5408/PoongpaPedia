@@ -65,6 +65,12 @@ const Header = ({backdrop_path, poster_path, title, release_date, genres}) => {
                         }
                         </div>
                     </div>
+                    <div className={styles.third}>
+                        평점
+                    </div>
+                    <div className={styles.fourth}>
+                        평가하기
+                    </div>
                 </div>
             </div>
         </div>

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
+import Layout from "../components/layout/Layout";
 
 function Search() {
     const {search} = useParams();
@@ -26,6 +27,7 @@ function Search() {
 
     return (
         <div>
+            <Layout />
             <h1>The Result is...</h1>
             {
                 results.map((result, index) => (
