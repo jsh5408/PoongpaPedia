@@ -8,7 +8,7 @@ import "./App.css";
 function App() {
   return (
     <div>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Route exact path="/" component={Home} />
         <Route exact path="/movie/:id" component={Detail} />
         <Route exact path="/search/:search" component={Search} />
