@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/PoongpaPedia/static/css/main.6a1fb54b.chunk.css",
-    "main.js": "/PoongpaPedia/static/js/main.522c4854.chunk.js",
-    "main.js.map": "/PoongpaPedia/static/js/main.522c4854.chunk.js.map",
+    "main.js": "/PoongpaPedia/static/js/main.7c74a331.chunk.js",
+    "main.js.map": "/PoongpaPedia/static/js/main.7c74a331.chunk.js.map",
     "runtime-main.js": "/PoongpaPedia/static/js/runtime-main.e588df0e.js",
     "runtime-main.js.map": "/PoongpaPedia/static/js/runtime-main.e588df0e.js.map",
     "static/js/2.b8645f01.chunk.js": "/PoongpaPedia/static/js/2.b8645f01.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.e588df0e.js",
     "static/js/2.b8645f01.chunk.js",
     "static/css/main.6a1fb54b.chunk.css",
-    "static/js/main.522c4854.chunk.js"
+    "static/js/main.7c74a331.chunk.js"
   ]
 }
